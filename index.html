@@ -28,7 +28,7 @@
         <i class="fa-solid fa-ellipsis-vertical setting-icon"></i>
       </div>
 
-      <div class="chat-bottom">
+      <div class="chat-bottom" id="chat-bottom">
         <div class="receiver-chatbox">
           That sounds great. I'd be happy with that.
         </div>
@@ -56,7 +56,7 @@
         </div>
   
         <div class="option">
-          <input type="radio" id="option-1" class="option-input">
+          <input type="radio" id="option-1" class="option-input" name="option1">
           <label for="option-1" class="option-label">30 minute walk</label>
           <p class="option-price">$29</p>
         </div>
@@ -66,12 +66,16 @@
           <label for="option-2" class="option-label">1 hour walk</label>
           <p class="option-price">$49</p>
         </div>
-  
-        <div class="message">
-          <input type="text" placeholder="Type a message" class="message-input" name="option1">
-          <i class="fa-solid fa-circle-chevron-right"></i>
-        </div>
 
+      </div>
+
+      <div class="new-message">
+        <div class="message">
+          <input type="text" placeholder="Type a message" class="message-input" name="option1" id="message-input">
+          <button class="send-btn" id="send-btn">
+            <i class="fa-solid fa-circle-chevron-right send-icon"></i>
+          </button>
+        </div>
       </div>
       
     </div>
@@ -91,5 +95,7 @@
     <div class="background-blob"></div>
 
   </main>
+
+  <script src="js/index.js"></script>
 </body>
 </html>

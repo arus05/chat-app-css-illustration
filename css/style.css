@@ -44,6 +44,7 @@
   --space-xl:   calc(3.25 * 1rem);
   --space-xxl:  calc(5.25 * 1rem);
 
+  --phone-height: 500px;
 }
 
 @media all and (min-width: 1200px){
@@ -53,6 +54,7 @@
     --fs-h3: 1.75rem;
     --fs-body: 1.1rem;
     --fs-small: 0.85rem;
+    --phone-height: 550px;
   }
 
 }
@@ -110,12 +112,13 @@ h3{font-size: var(--fs-h3)}
   justify-content: center;
   flex-direction: column;
   gap: var(--space-xl);
+  min-height: 100vh;
 }
 
 @media all and (min-width: 800px){
   .container{
     flex-direction: row;
-    gap: var(--space-xxl);
+    gap: 8rem;
     max-width: 1000px;
     margin: 0 auto;
     justify-content: space-around;
@@ -130,14 +133,18 @@ h3{font-size: var(--fs-h3)}
   margin: 0 auto;
   font-size: var(--fs-small);
   user-select: none;
-  transition: box-shadow 250ms ease-in-out;
+  box-shadow: 0 0 10px rgb(100, 97, 97);
+  transition:
+  box-shadow 250ms ease-in-out,
+  transform 500ms ease-in-out;
   cursor: pointer;
 }
 
 .chat:hover{
-  box-shadow: 2px 2px 25px -1px var(--clr-violet-4);
-  -webkit-box-shadow: 2px 2px 25px -1px var(--clr-violet-4);
-  -moz-box-shadow: 2px 2px 25px -1px var(--clr-violet-4);
+  box-shadow: 2px 2px 10px var(--clr-black);
+  -webkit-box-shadow: 2px 2px 10px -1px var(--clr-black);
+  -moz-box-shadow: 2px 2px 10px -1px var(--clr-black);
+  transform: translateX(-15px);
 }
 
 .chat-top{
@@ -145,7 +152,7 @@ h3{font-size: var(--fs-h3)}
   background: var(--clr-gradient-reverse);
   display: flex;
   align-items: center;
-  border-radius: 1.5rem 1.5rem 0.5rem 0.5rem;
+  border-radius: 1.5rem 1.5rem 0 0;
   color: white;
   gap: 0.75em;
   padding: 2em 1.5em 1em;
@@ -190,20 +197,24 @@ h3{font-size: var(--fs-h3)}
 
 .chat-bottom{
   background: var(--clr-gray-1);
-  border-radius: 0 0 1.5rem 1.5rem;
-  padding: 1em;
+  border-radius: 0;
+  padding: 1em 1em;
+  max-height: var(--phone-height);
+  overflow-y: scroll;
 }
 
 .my-chatbox{
   background: white;
-  color: var(--clr-gray-4);
+  color: var(--clr-gray-5);
   border-radius: 1rem 1rem 0.1rem 1rem;
   padding: 0.5em;
   margin-bottom: var(--space-xs);
-  width: 75%;
+  width: max-content;
+  max-width: 75%;
   margin-left: auto;
   transition: transform 250ms ease-in-out;
   cursor: pointer;
+  word-wrap: break-word;
 }
 
 .my-chatbox:hover,
@@ -256,9 +267,21 @@ h3{font-size: var(--fs-h3)}
   transform: scale(0.95);
 }
 
+.option-input{
+  accent-color: var(--clr-violet-4);
+  height: 1rem;
+  width: 1rem;
+}
+
 .option-price{
-  font-weight: var(--fw-ex-bold);
+  font-weight: var(--fw-bold);
   margin-left: auto;
+}
+
+.new-message{
+  background: var(--clr-gray-1);
+  border-radius: 0 0 1.5rem 1.5rem;
+  padding: 1em;
 }
 
 .message{
@@ -267,11 +290,7 @@ h3{font-size: var(--fs-h3)}
   padding: 0.5rem;
   display: flex;
   align-items: center;
-  margin: var(--space-xs) 0 0;
-}
-
-.message:has(.message-input:focus){
-  outline: 3px solid var(--clr-violet-4);
+  margin: 0;
 }
 
 .message-input{
@@ -292,10 +311,20 @@ h3{font-size: var(--fs-h3)}
   color: var(--clr-gray-3);
 }
 
-.message > i{
+.send-btn{
+  border: none;
+  background: transparent;
+}
+
+.send-icon{
   font-size: var(--fs-h2);
   margin: 0;
-  margin-right: 1=em;
+  color: var(--clr-black);
+  transition: opacity 300ms linear;
+}
+
+.send-icon:hover{
+  opacity: 0.65;
 }
 
 @media all and (min-width: 800px){
@@ -306,7 +335,7 @@ h3{font-size: var(--fs-h3)}
 
 @media all and (min-width: 1200px){
   .chat{
-    width: 350px;
+    width: 375px;
   }
 }
 
