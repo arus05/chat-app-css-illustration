@@ -44,7 +44,7 @@
   --space-xl:   calc(3.25 * 1rem);
   --space-xxl:  calc(5.25 * 1rem);
 
-  --phone-height: 500px;
+  --phone-height: 450px;
 }
 
 @media all and (min-width: 1200px){
@@ -54,7 +54,7 @@
     --fs-h3: 1.75rem;
     --fs-body: 1.1rem;
     --fs-small: 0.85rem;
-    --phone-height: 550px;
+    --phone-height: 500px;
   }
 
 }
@@ -144,7 +144,6 @@ h3{font-size: var(--fs-h3)}
   box-shadow: 2px 2px 10px var(--clr-black);
   -webkit-box-shadow: 2px 2px 10px -1px var(--clr-black);
   -moz-box-shadow: 2px 2px 10px -1px var(--clr-black);
-  transform: translateX(-15px);
 }
 
 .chat-top{
